@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Products/Debug/Hypercharge.app/Contents/MacOS/Hypercharge'
-relocations:     []
-...
