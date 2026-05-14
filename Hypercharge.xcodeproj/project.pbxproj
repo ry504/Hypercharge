@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		410EBB4DA5CCAE9A13FC30BF /* WindowObserverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */; };
+		4AF1BCEA03DD49B9C72705A3 /* HyperchargeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A71853CF241B364D91139 /* HyperchargeTests.swift */; };
+		5184775D332E82BC2FC8A5EA /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BA4D042E380976BDB173B /* AccessibilityService.swift */; };
+		65A12A1146749FAEA75EB71C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE0940B1FA90CED6FDF5F4 /* AppDelegate.swift */; };
+		706DC4F9703F0E6C9287BBB2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98F3F4F1A6D6643F2719B3 /* SettingsView.swift */; };
+		7191F9D4F4A3BE8BB3056374 /* HyperchargeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F253E8CCA1D8F029E3C068F5 /* HyperchargeApp.swift */; };
+		A5A66327C4825C66CA867AB6 /* HyperchargeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515191FD67A53F594EE654D6 /* HyperchargeModel.swift */; };
+		F3C6B86985DCDA7BDA7D69A4 /* MenuPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50F24A4A4562AB5E492E27 /* MenuPopoverView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0D96559A6399A36E09CBA0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88B168574763722A663C2247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63D1E73CEF32F4263E99D82F;
+			remoteInfo = Hypercharge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E50F24A4A4562AB5E492E27 /* MenuPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopoverView.swift; sourceTree = "<group>"; };
+		2B70CF6D69F5121686264FEC /* Hypercharge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hypercharge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F98F3F4F1A6D6643F2719B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		47A4140D0F23288EA3B38BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		515191FD67A53F594EE654D6 /* HyperchargeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperchargeModel.swift; sourceTree = "<group>"; };
+		570A71853CF241B364D91139 /* HyperchargeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperchargeTests.swift; sourceTree = "<group>"; };
+		747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowObserverService.swift; sourceTree = "<group>"; };
+		AA45DBA76E52784BD9630DF4 /* HyperchargeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperchargeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DE0940B1FA90CED6FDF5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB0BA4D042E380976BDB173B /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		F253E8CCA1D8F029E3C068F5 /* HyperchargeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperchargeApp.swift; sourceTree = "<group>"; };
+		FFB5DA94C309D5602744DC46 /* Hypercharge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hypercharge.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		4AFE8926146308954034126C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				570A71853CF241B364D91139 /* HyperchargeTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		67C576BC661A5438F78EF08C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C6DE0940B1FA90CED6FDF5F4 /* AppDelegate.swift */,
+				F253E8CCA1D8F029E3C068F5 /* HyperchargeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		90261AC014ED3481B574DA8C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				515191FD67A53F594EE654D6 /* HyperchargeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1CAD8E0582F23B77E4B1AC5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5DA94C309D5602744DC46 /* Hypercharge.entitlements */,
+				47A4140D0F23288EA3B38BBE /* Info.plist */,
+				67C576BC661A5438F78EF08C /* App */,
+				90261AC014ED3481B574DA8C /* Models */,
+				DD73C3A907F717BEA147B98B /* Services */,
+				E399A2CA2CDF01154C938731 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A69D7073933D13EA7C8053D6 = {
+			isa = PBXGroup;
+			children = (
+				A1CAD8E0582F23B77E4B1AC5 /* Sources */,
+				4AFE8926146308954034126C /* Tests */,
+				B48456E9227F1EE5C231AC5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B48456E9227F1EE5C231AC5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B70CF6D69F5121686264FEC /* Hypercharge.app */,
+				AA45DBA76E52784BD9630DF4 /* HyperchargeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD73C3A907F717BEA147B98B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BA4D042E380976BDB173B /* AccessibilityService.swift */,
+				747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E399A2CA2CDF01154C938731 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E50F24A4A4562AB5E492E27 /* MenuPopoverView.swift */,
+				3F98F3F4F1A6D6643F2719B3 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63D1E73CEF32F4263E99D82F /* Hypercharge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE7AF85ED760C4E25446788F /* Build configuration list for PBXNativeTarget "Hypercharge" */;
+			buildPhases = (
+				33A6DD33FFE67FB66D69797D /* Sources */,
+				D4CCABE47F9D029C262795A9 /* Copy App Icon */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hypercharge;
+			packageProductDependencies = (
+			);
+			productName = Hypercharge;
+			productReference = 2B70CF6D69F5121686264FEC /* Hypercharge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D19385CD5D25B00B7CF30939 /* HyperchargeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80550A893B5B7781E9AC0839 /* Build configuration list for PBXNativeTarget "HyperchargeTests" */;
+			buildPhases = (
+				46FB17B4DFD31375BF9A941A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61F548E6699040D568DEB678 /* PBXTargetDependency */,
+			);
+			name = HyperchargeTests;
+			packageProductDependencies = (
+			);
+			productName = HyperchargeTests;
+			productReference = AA45DBA76E52784BD9630DF4 /* HyperchargeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88B168574763722A663C2247 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					63D1E73CEF32F4263E99D82F = {
+						ProvisioningStyle = Automatic;
+					};
+					D19385CD5D25B00B7CF30939 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 052EA82943A4531317B38084 /* Build configuration list for PBXProject "Hypercharge" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A69D7073933D13EA7C8053D6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B48456E9227F1EE5C231AC5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63D1E73CEF32F4263E99D82F /* Hypercharge */,
+				D19385CD5D25B00B7CF30939 /* HyperchargeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4CCABE47F9D029C262795A9 /* Copy App Icon */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy App Icon";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${SRCROOT}/Resources/AppIcon.icns\" \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33A6DD33FFE67FB66D69797D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5184775D332E82BC2FC8A5EA /* AccessibilityService.swift in Sources */,
+				65A12A1146749FAEA75EB71C /* AppDelegate.swift in Sources */,
+				7191F9D4F4A3BE8BB3056374 /* HyperchargeApp.swift in Sources */,
+				A5A66327C4825C66CA867AB6 /* HyperchargeModel.swift in Sources */,
+				F3C6B86985DCDA7BDA7D69A4 /* MenuPopoverView.swift in Sources */,
+				706DC4F9703F0E6C9287BBB2 /* SettingsView.swift in Sources */,
+				410EBB4DA5CCAE9A13FC30BF /* WindowObserverService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46FB17B4DFD31375BF9A941A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF1BCEA03DD49B9C72705A3 /* HyperchargeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61F548E6699040D568DEB678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63D1E73CEF32F4263E99D82F /* Hypercharge */;
+			targetProxy = B0D96559A6399A36E09CBA0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		21DB58B23621AF062B9B4157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Hypercharge.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanfong.hypercharge;
+				PRODUCT_NAME = Hypercharge;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Release;
+		};
+		32469C806E96BC9E16635077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Hypercharge.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanfong.hypercharge;
+				PRODUCT_NAME = Hypercharge;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+		793D52E5F5691E28FA7117B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		A3EA43BEF5F9B85B4A4D2ED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanfong.hypercharge.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hypercharge.app/Contents/MacOS/Hypercharge";
+			};
+			name = Release;
+		};
+		C88367710D1517541D6852E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanfong.hypercharge.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hypercharge.app/Contents/MacOS/Hypercharge";
+			};
+			name = Debug;
+		};
+		F8006C58B5BE745984046375 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		052EA82943A4531317B38084 /* Build configuration list for PBXProject "Hypercharge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8006C58B5BE745984046375 /* Debug */,
+				793D52E5F5691E28FA7117B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		80550A893B5B7781E9AC0839 /* Build configuration list for PBXNativeTarget "HyperchargeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C88367710D1517541D6852E9 /* Debug */,
+				A3EA43BEF5F9B85B4A4D2ED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DE7AF85ED760C4E25446788F /* Build configuration list for PBXNativeTarget "Hypercharge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32469C806E96BC9E16635077 /* Debug */,
+				21DB58B23621AF062B9B4157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88B168574763722A663C2247 /* Project object */;
+}

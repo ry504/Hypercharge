@@ -1,0 +1,19 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests-primary.dia",
+    "emit-module-dependencies" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests-primary-emit-module.dia",
+    "pch" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests-primary.swiftdeps"
+  },
+  "/Users/ryanfong/Documents/My Apps/Hypercharge/Tests/HyperchargeTests.swift" : {
+    "const-values" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.swiftconstvalues",
+    "dependencies" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.d",
+    "diagnostics" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.dia",
+    "index-unit-output-path" : "/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.o",
+    "llvm-bc" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.bc",
+    "object" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.o",
+    "swift-dependencies" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests.swiftdeps",
+    "swiftmodule" : "/Users/ryanfong/Documents/My Apps/Hypercharge/build/Build/Intermediates.noindex/Hypercharge.build/Debug/HyperchargeTests.build/Objects-normal/arm64/HyperchargeTests~partial.swiftmodule"
+  }
+}

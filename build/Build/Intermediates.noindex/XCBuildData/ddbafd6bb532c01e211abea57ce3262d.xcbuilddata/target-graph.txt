@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'HyperchargeTests' in project 'Hypercharge'
+➜ Explicit dependency on target 'Hypercharge' in project 'Hypercharge'
+Target 'Hypercharge' in project 'Hypercharge' (no dependencies)
