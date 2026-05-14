@@ -33,6 +33,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.contentView = NSHostingView(rootView: SettingsView(model: model))
         window.isReleasedWhenClosed = false
+        window.delegate = self
         settingsWindow = window
         window.makeKeyAndOrderFront(nil)
         NSApp.setActivationPolicy(.regular)
@@ -42,6 +43,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
         showSettings()
         return false
+    }
+}
+
+extension AppDelegate: NSWindowDelegate {
+    func windowWillClose(_ notification: Notification) {
+        // Hide dock icon when settings window closes
+        DispatchQueue.main.async {
+            NSApp.setActivationPolicy(.prohibited)
+        }
     }
 }
 
