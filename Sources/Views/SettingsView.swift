@@ -7,10 +7,36 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
-                Toggle("Quit app when last window closes", isOn: $model.isEnabled)
+                HStack(spacing: 12) {
+                    if let icon = NSApp.applicationIconImage {
+                        Image(nsImage: icon)
+                            .resizable()
+                            .frame(width: 48, height: 48)
+                    }
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Hypercharge")
+                            .font(.headline)
+                        Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                }
+                .padding(.vertical, 4)
             }
 
-            Section("Excluded Apps") {
+            Section {
+                Toggle("Quit app when last window closes", isOn: $model.isEnabled)
+                Toggle("Auto-install apps from mounted DMG files", isOn: $model.dmgInstallEnabled)
+                VStack(alignment: .leading, spacing: 2) {
+                    Toggle("Click Dock icon to hide/show app", isOn: $model.dockToggleEnabled)
+                    Text("Clicking a running app's Dock icon hides it if it's frontmost, or unhides and activates it if hidden.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Section("Excluded Apps from Quit on Last Window Close") {
                 if model.exclusionList.isEmpty {
                     Text("No apps excluded")
                         .foregroundStyle(.secondary)
@@ -39,6 +65,7 @@ struct SettingsView: View {
                     showingAppPicker = true
                 }
             }
+
         }
         .formStyle(.grouped)
         .sheet(isPresented: $showingAppPicker) {

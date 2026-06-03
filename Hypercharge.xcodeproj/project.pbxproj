@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16F4EB44958B86357875E32F /* DockClickInterceptorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F0FF8A0702044B1BDB57 /* DockClickInterceptorService.swift */; };
 		410EBB4DA5CCAE9A13FC30BF /* WindowObserverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */; };
 		4AF1BCEA03DD49B9C72705A3 /* HyperchargeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A71853CF241B364D91139 /* HyperchargeTests.swift */; };
 		5184775D332E82BC2FC8A5EA /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BA4D042E380976BDB173B /* AccessibilityService.swift */; };
 		65A12A1146749FAEA75EB71C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE0940B1FA90CED6FDF5F4 /* AppDelegate.swift */; };
 		706DC4F9703F0E6C9287BBB2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98F3F4F1A6D6643F2719B3 /* SettingsView.swift */; };
 		7191F9D4F4A3BE8BB3056374 /* HyperchargeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F253E8CCA1D8F029E3C068F5 /* HyperchargeApp.swift */; };
+		942CC93B8A302251C557DFE5 /* DMGWatcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BADA96584AC3784D89A1AC1 /* DMGWatcherService.swift */; };
 		A5A66327C4825C66CA867AB6 /* HyperchargeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515191FD67A53F594EE654D6 /* HyperchargeModel.swift */; };
 		F3C6B86985DCDA7BDA7D69A4 /* MenuPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50F24A4A4562AB5E492E27 /* MenuPopoverView.swift */; };
 /* End PBXBuildFile section */
@@ -30,11 +32,13 @@
 /* Begin PBXFileReference section */
 		1E50F24A4A4562AB5E492E27 /* MenuPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopoverView.swift; sourceTree = "<group>"; };
 		2B70CF6D69F5121686264FEC /* Hypercharge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hypercharge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BADA96584AC3784D89A1AC1 /* DMGWatcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMGWatcherService.swift; sourceTree = "<group>"; };
 		3F98F3F4F1A6D6643F2719B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		47A4140D0F23288EA3B38BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		515191FD67A53F594EE654D6 /* HyperchargeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperchargeModel.swift; sourceTree = "<group>"; };
 		570A71853CF241B364D91139 /* HyperchargeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperchargeTests.swift; sourceTree = "<group>"; };
 		747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowObserverService.swift; sourceTree = "<group>"; };
+		8D49F0FF8A0702044B1BDB57 /* DockClickInterceptorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockClickInterceptorService.swift; sourceTree = "<group>"; };
 		AA45DBA76E52784BD9630DF4 /* HyperchargeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperchargeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DE0940B1FA90CED6FDF5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB0BA4D042E380976BDB173B /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				DB0BA4D042E380976BDB173B /* AccessibilityService.swift */,
+				2BADA96584AC3784D89A1AC1 /* DMGWatcherService.swift */,
+				8D49F0FF8A0702044B1BDB57 /* DockClickInterceptorService.swift */,
 				747AD9FB9643213B9BD86BE7 /* WindowObserverService.swift */,
 			);
 			path = Services;
@@ -221,6 +227,8 @@
 			files = (
 				5184775D332E82BC2FC8A5EA /* AccessibilityService.swift in Sources */,
 				65A12A1146749FAEA75EB71C /* AppDelegate.swift in Sources */,
+				942CC93B8A302251C557DFE5 /* DMGWatcherService.swift in Sources */,
+				16F4EB44958B86357875E32F /* DockClickInterceptorService.swift in Sources */,
 				7191F9D4F4A3BE8BB3056374 /* HyperchargeApp.swift in Sources */,
 				A5A66327C4825C66CA867AB6 /* HyperchargeModel.swift in Sources */,
 				F3C6B86985DCDA7BDA7D69A4 /* MenuPopoverView.swift in Sources */,

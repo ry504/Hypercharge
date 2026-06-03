@@ -10,12 +10,22 @@ final class HyperchargeModel {
         didSet { save() }
     }
 
+    var dmgInstallEnabled: Bool {
+        didSet { save() }
+    }
+
+    var dockToggleEnabled: Bool {
+        didSet { save() }
+    }
+
     private let defaults: UserDefaults
 
     init(userDefaults: UserDefaults = .standard) {
         self.defaults = userDefaults
         self.isEnabled = defaults.object(forKey: "isEnabled") as? Bool ?? true
         self.exclusionList = defaults.stringArray(forKey: "exclusionList") ?? []
+        self.dmgInstallEnabled = defaults.object(forKey: "dmgInstallEnabled") as? Bool ?? true
+        self.dockToggleEnabled = defaults.object(forKey: "dockToggleEnabled") as? Bool ?? false
     }
 
     func isExcluded(_ bundleIdentifier: String) -> Bool {
@@ -33,5 +43,7 @@ final class HyperchargeModel {
     private func save() {
         defaults.set(isEnabled, forKey: "isEnabled")
         defaults.set(exclusionList, forKey: "exclusionList")
+        defaults.set(dmgInstallEnabled, forKey: "dmgInstallEnabled")
+        defaults.set(dockToggleEnabled, forKey: "dockToggleEnabled")
     }
 }

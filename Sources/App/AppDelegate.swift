@@ -4,6 +4,8 @@ import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let observer = WindowObserverService.shared
+    private let dmgWatcher = DMGWatcherService.shared
+    private let dockInterceptor = DockClickInterceptorService.shared
     var model: HyperchargeModel?
     private var settingsWindow: NSWindow?
 
