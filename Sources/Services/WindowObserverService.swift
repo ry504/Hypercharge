@@ -14,7 +14,33 @@ final class WindowObserverService {
     // Per-app: the set of window IDs we last saw (not just a count). Tracking
     // IDENTITY is what makes respawn-aware quitting possible.
     private var seenWindowIDs: [pid_t: Set<CGWindowID>] = [:]
+    // Per-app: consecutive polls observed at ZERO windows. Used only for
+    // aggressive-quit apps (below) to quit an app sitting window-less even when
+    // Hypercharge never recorded a window for it first (e.g. a window that opened
+    // + closed between polls, or a quit request that didn't take — the leftover
+    // window-less Terminal case).
+    private var zeroWindowPolls: [pid_t: Int] = [:]
     private let log = Logger(subsystem: "com.ryanfong.hypercharge", category: "WindowObserver")
+
+    /// Bundle ids that should be quit WHENEVER they sit window-less — regardless of
+    /// whether Hypercharge saw them open a window first. For everything else the
+    /// safe rule applies (only quit on a real window→closed transition). Terminal is
+    /// the canonical case: it can end up running with zero windows via paths
+    /// Hypercharge never armed on. Stored in UserDefaults (`aggressiveQuitList`,
+    /// seeded with Terminal) so it can be edited later without a code change.
+    private var aggressiveQuitList: [String] {
+        if let stored = UserDefaults.standard.stringArray(forKey: "aggressiveQuitList") {
+            return stored
+        }
+        // Seed default on first run.
+        let seed = ["com.apple.Terminal"]
+        UserDefaults.standard.set(seed, forKey: "aggressiveQuitList")
+        return seed
+    }
+    /// Consecutive 0-window polls before an aggressive-quit app is terminated.
+    /// At 0.4s/poll, 3 ≈ 1.2s — long enough to not kill an app mid-launch or
+    /// between closing one window and opening the next.
+    private let aggressiveQuitGracePolls = 3
 
     private init() {
         DispatchQueue.main.async { [weak self] in
@@ -57,9 +83,27 @@ final class WindowObserverService {
             let currentIDs = axWindowIDs(for: app)
             let idsReliable = (currentIDs.count == windowCount) // every window yielded an id
 
+            let isAggressive = aggressiveQuitList.contains(bundleId)
+
+            // Track the consecutive-zero-window streak (used only for aggressive
+            // apps). Reset it the moment any window exists.
+            if windowCount == 0 {
+                zeroWindowPolls[pid, default: 0] += 1
+            } else {
+                zeroWindowPolls[pid] = 0
+            }
+
             guard let prevIDs = seenWindowIDs[pid] else {
-                // First time we've seen this app — record and don't touch it yet.
-                if windowCount > 0 { seenWindowIDs[pid] = currentIDs }
+                // First time we've seen this app — record and don't touch it yet,
+                // EXCEPT an aggressive app sitting window-less past the grace period
+                // (the leftover window-less Terminal we never saw open a window).
+                if windowCount > 0 {
+                    seenWindowIDs[pid] = currentIDs
+                } else if isAggressive && zeroWindowPolls[pid, default: 0] >= aggressiveQuitGracePolls {
+                    log.info("terminating \(app.localizedName ?? bundleId): aggressive-quit, window-less for \(self.aggressiveQuitGracePolls) polls (never saw a window)")
+                    zeroWindowPolls[pid] = 0
+                    app.terminate()
+                }
                 continue
             }
 
@@ -68,6 +112,12 @@ final class WindowObserverService {
                 if !prevIDs.isEmpty {
                     log.info("terminating \(app.localizedName ?? bundleId): had \(prevIDs.count) windows, now 0")
                     seenWindowIDs[pid] = []
+                    app.terminate()
+                } else if isAggressive && zeroWindowPolls[pid, default: 0] >= aggressiveQuitGracePolls {
+                    // Aggressive app that reached 0 windows via a path we didn't arm
+                    // on (prior terminate didn't take, etc.) — quit it after grace.
+                    log.info("terminating \(app.localizedName ?? bundleId): aggressive-quit, window-less for \(self.aggressiveQuitGracePolls) polls")
+                    zeroWindowPolls[pid] = 0
                     app.terminate()
                 }
                 continue
@@ -97,6 +147,7 @@ final class WindowObserverService {
         // Clean up entries for apps no longer running.
         let runningPIDs = Set(NSWorkspace.shared.runningApplications.map(\.processIdentifier))
         seenWindowIDs = seenWindowIDs.filter { runningPIDs.contains($0.key) }
+        zeroWindowPolls = zeroWindowPolls.filter { runningPIDs.contains($0.key) }
     }
 
     /// The set of CoreGraphics window IDs for an app's AX windows. Empty if the
