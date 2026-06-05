@@ -152,14 +152,93 @@ final class WindowObserverService {
 
     /// The set of CoreGraphics window IDs for an app's AX windows. Empty if the
     /// app exposes no windows or AX is unavailable.
+    ///
+    /// Primary identity is the private AX SPI (`_AXUIElementGetWindow`). But that
+    /// SPI returns 0/error for some windows — notably tmux-attached Terminal
+    /// windows — which would shrink the id set below the AX window count, flip
+    /// `idsReliable` false, and gate off respawn-aware quitting. So for any AX
+    /// window the SPI couldn't resolve, we recover its CGWindowID by matching the
+    /// AX window's frame (position+size) to a `CGWindowListCopyWindowInfo` entry
+    /// for this pid and taking its `kCGWindowNumber`. AX window ids and
+    /// CGWindowList numbers are the SAME namespace (both `CGWindowID` — the SPI
+    /// literally returns the window number), so mixing them is safe.
+    ///
+    /// Matching by frame (rather than just topping up from any layer-0 CG window)
+    /// is deliberate: Terminal exposes several persistent CG helper surfaces
+    /// (full-width menubar-shadow strips at 0,0; an off-screen square cache
+    /// window) that have NO AX-window counterpart. Those must never enter the id
+    /// set — they're stable across polls, so a chrome id present in both the prior
+    /// and current set would keep the prev∩current intersection non-empty and
+    /// defeat respawn detection. A frame match only ever resolves a REAL window.
     private func axWindowIDs(for app: NSRunningApplication) -> Set<CGWindowID> {
+        let windows = axWindows(for: app)
+        guard !windows.isEmpty else { return [] }
+
         var ids = Set<CGWindowID>()
-        for w in axWindows(for: app) {
+        var unresolved: [AXUIElement] = []
+        for w in windows {
             var wid: CGWindowID = 0
             if _AXUIElementGetWindow(w, &wid) == .success, wid != 0 {
                 ids.insert(wid)
+            } else {
+                unresolved.append(w)
             }
         }
+
+        // SPI resolved every window — done.
+        if unresolved.isEmpty { return ids }
+
+        // Recover the unresolved windows' numbers by frame-matching against this
+        // pid's CG windows. No AX/TCC needed for window numbers.
+        let cgWindows = cgWindows(forOwnerPID: app.processIdentifier)
+        for w in unresolved {
+            guard let frame = axFrame(of: w),
+                  let number = cgWindows.first(where: { framesMatch($0.bounds, frame) })?.number
+            else { continue }
+            ids.insert(number)
+        }
         return ids
+    }
+
+    /// The AX window's screen frame (position + size), or nil if unavailable.
+    private func axFrame(of window: AXUIElement) -> CGRect? {
+        var posRef: CFTypeRef?
+        var sizeRef: CFTypeRef?
+        guard AXUIElementCopyAttributeValue(window, kAXPositionAttribute as CFString, &posRef) == .success,
+              AXUIElementCopyAttributeValue(window, kAXSizeAttribute as CFString, &sizeRef) == .success
+        else { return nil }
+        var pos = CGPoint.zero
+        var size = CGSize.zero
+        AXValueGetValue(posRef as! AXValue, .cgPoint, &pos)
+        AXValueGetValue(sizeRef as! AXValue, .cgSize, &size)
+        return CGRect(origin: pos, size: size)
+    }
+
+    /// `(number, bounds)` for every CG window owned by `pid`, across all Spaces.
+    /// Window NUMBERS (`kCGWindowNumber`) are TCC-free — they need no Accessibility
+    /// or Screen-Recording grant (only the window TITLE/IMAGE require Screen
+    /// Recording, which we never read) — and are stable per-window for the
+    /// window's lifetime, exactly like the AX SPI id. `.optionAll` includes
+    /// windows on OTHER Spaces so the frame match works for a coder window the
+    /// user has scrolled away from.
+    private func cgWindows(forOwnerPID pid: pid_t) -> [(number: CGWindowID, bounds: CGRect)] {
+        guard let infos = CGWindowListCopyWindowInfo(.optionAll, kCGNullWindowID) as? [[String: Any]] else {
+            return []
+        }
+        return infos.compactMap { info in
+            guard (info[kCGWindowOwnerPID as String] as? pid_t) == pid,
+                  let number = info[kCGWindowNumber as String] as? CGWindowID,
+                  let boundsDict = info[kCGWindowBounds as String] as? [String: CGFloat],
+                  let bounds = CGRect(dictionaryRepresentation: boundsDict as CFDictionary)
+            else { return nil }
+            return (number, bounds)
+        }
+    }
+
+    /// Two frames are the same window if their origin and size agree within 1pt
+    /// (AX and CG occasionally disagree by a sub-pixel rounding step).
+    private func framesMatch(_ a: CGRect, _ b: CGRect) -> Bool {
+        abs(a.origin.x - b.origin.x) <= 1 && abs(a.origin.y - b.origin.y) <= 1 &&
+        abs(a.width - b.width) <= 1 && abs(a.height - b.height) <= 1
     }
 }
